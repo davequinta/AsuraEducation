@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Table - Brand</title>
+    <title>Detections</title>
     <meta name="description" content="Asura Web App">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="assets/css/News-Cards.css">
     <link rel="stylesheet" href="assets/css/Toggle-Switch-1.css">
     <link rel="stylesheet" href="assets/css/Toggle-Switch.css">
+      <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-firestore.js"></script>
 </head>
 
 <body id="page-top">
@@ -30,15 +33,14 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="blank.html"><i class="fas fa-window-maximize"></i><span>Employees</span></a><a class="nav-link" href="#"><i class="fas fa-window-maximize"></i><span>Detecciones</span></a><a class="nav-link" href="profile.html"><i class="fas fa-user"></i><span>Profile</span></a>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="dashboard.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="detections.html"><i class="fas fa-bullseye"></i><span>Detections</span></a><a class="nav-link" href="employees.html"><i class="fas fa-users"></i><span>Employees</span></a><a class="nav-link" href="profile.html"><i class="fas fa-user"></i><span>Profile</span></a>
                         <a
-                            class="nav-link" href="#"><i class="fas fa-window-maximize"></i><span>Reportes</span></a><a class="nav-link" href="#"><i class="fas fa-window-maximize"></i><span>Asura Age and Gender</span></a></li>
+                            class="nav-link" href="blank.html"><i class="fas fa-window-maximize"></i><span>Reports</span></a>
+                    </li>
                     <li class="nav-item" role="presentation"></li>
-                    <li class="nav-item" role="presentation"></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="table-1.html"><i class="fas fa-table"></i><span>Detections</span></a></li>
                 </ul>
-                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+                <div class="text-center d-none d-md-inline"></div>
             </div>
         </nav>
         <div class="d-flex flex-column" id="content-wrapper">
@@ -135,7 +137,7 @@
                             </li>
                             <div class="d-none d-sm-block topbar-divider"></div>
                             <li class="nav-item dropdown no-arrow" role="presentation">
-                                <li class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">Admin</span><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar5.jpeg"></a>
+                                <li class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">Admin</span><i class="fa fa-user-circle"></i></a>
                                     <div
                                         class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
                                         <a
@@ -147,7 +149,7 @@
             </div>
             </nav>
             <div class="container-fluid">
-                <h3 class="text-dark mb-4">Detections Log</h3>
+                <h3 class="text-dark mb-4">Detections Log || Total: <span id="total">6</span></h3> 
                 <div class="card shadow">
                     <div class="card-header py-3">
                         <p class="text-primary m-0 font-weight-bold">Detection Info</p>
@@ -160,7 +162,8 @@
                             <div class="col-md-6">
                                 <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div>
                             </div>
-                        </div><div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                        </div>
+    <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
     <table class="table dataTable my-0" id="dataTable">
         <thead>
             <tr>
@@ -172,37 +175,7 @@
              
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg" />Dave Quintanilla</td>
-                <td>00025815</td>
-                <td>CTO</td>
-                <td>SAMSUNG07</td>
-                <td>2008/11/28 00:00</td>
-            </tr>
-            <tr>
-                <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg" />Dave Quintanilla</td>
-                <td>00025815</td>
-                <td>CTO</td>
-                <td>SAMSUNG07</td>
-                <td>2008/11/28 00:00</td>
-            </tr>
-            <tr>
-                <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg" />Dave Quintanilla</td>
-                <td>00025815</td>
-                <td>CTO</td>
-                <td>SAMSUNG07</td>
-                <td>2008/11/28 00:00</td>
-            </tr>
-            <tr>
-                <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg" />Dave Quintanilla</td>
-                <td>00025815</td>
-                <td>CTO</td>
-                <td>SAMSUNG07</td>
-                <td>2008/11/28 00:00</td>
-            </tr>
-            
-            
+        <tbody id="tb-table">
             
         </tbody>
        
@@ -242,6 +215,63 @@
     <script src="assets/js/bs-charts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script src="../firebase-init.js"></script>
+    <script>
+        
+      const tbtable = document.querySelector('#tb-table')
+     
+      function renderTable(doc){
+
+
+          let tr =document.createElement('tr')
+          let name=document.createElement('td')
+          let id=document.createElement('td')
+          let device=document.createElement('td')
+          let room=document.createElement('td')
+          let date=document.createElement('td')
+
+
+
+          name.textContent = doc.data().name
+          if( doc.data().name=="Dave"){
+              id.textContent = "00025815"
+          }else if(doc.data().name=="Richi"){
+            id.textContent = "00047015"
+          } else if(doc.data().name=="Cesar"){
+            id.textContent = "00050715"
+          }else if(doc.data().name=="Luis"){
+            id.textContent = "00037415"
+          }
+          else if(doc.data().name=="Matus"){
+            id.textContent = "00066015"
+          }else{
+            id.textContent = "UNKNOWN"
+          }
+          device.textContent = doc.data().device
+          room.textContent = doc.data().room
+          date.textContent = doc.data().date
+
+          tr.appendChild(name)
+          tr.appendChild(id)
+          tr.appendChild(device)
+          tr.appendChild(room)
+          tr.appendChild(date)
+
+          tbtable.appendChild(tr)
+      }
+         //Getting data from Collection
+        db.collection('detections').orderBy('date','desc').get().then((snapshot)=>{
+            document.getElementById("total").textContent=snapshot.size
+            snapshot.docs.forEach(doc=>{
+              renderTable(doc)
+
+            })
+        })
+      
+
+     
+    
+    </script>
 </body>
 
 </html>

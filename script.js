@@ -189,8 +189,8 @@ function loadLabeledImages() {
   return Promise.all(
     labels.map(async label => {
       const descriptions = []
-      for (let i = 1; i <= 3; i++) {
-        const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/davequinta/AsuraEducation/master/Faces/${label}/${i}.JPG`)
+      for (let i = 1; i <= 10; i++) {
+        const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/davequinta/AsuraFaceID/master/Faces/${label}/${i}.JPG`)
         const detections = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
         console.log("Puntos: " + detections)
         // console.log("Descriptor"+detections.descriptor)
