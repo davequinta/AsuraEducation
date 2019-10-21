@@ -123,7 +123,7 @@ video.addEventListener('play', () => {
       // faceapi.draw.drawBox(canvas,  { label: result.toString() })
 
     })
-    faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
+    //faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
 
     faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
 
