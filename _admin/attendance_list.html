@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Table - Brand</title>
+    <title>Lista de asistencia</title>
     <meta name="description" content="Asura Web App">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="assets/css/News-Cards.css">
     <link rel="stylesheet" href="assets/css/Toggle-Switch-1.css">
     <link rel="stylesheet" href="assets/css/Toggle-Switch.css">
+      <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-firestore.js"></script>
 </head>
 
 <body id="page-top">
@@ -150,23 +153,22 @@
             </div>
             </nav>
             <div class="container-fluid">
-                <h3 class="text-dark mb-4">Deteciones Grado 6°B</h3>
+                <button type="button" class="btn btn-primary" onclick="limpiar()">Limpiar</button>
+                <h3 class="text-dark mb-4">Deteciones Grado 6°B</h3> 
+
                 <div class="card shadow">
                     <div class="card-header py-3">
                         <p class="text-primary m-0 font-weight-bold" style="color: rgb(69,58,58);">Lista de asistencia - Sociales 02FBA12</p>
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-6 text-nowrap">
-                                <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label>Mostrar<select class="form-control form-control-sm custom-select custom-select-sm"><option value="10" selected="">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select>&nbsp;</label></div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div>
-                            </div>
+                           
+                           
                         </div><div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
     <table class="table dataTable my-0" id="dataTable">
         <thead>
             <tr>
+                <th>Foto</th>
                 <th>Nombre</th>
                 <th>Carnet</th>
                 <th>Asistencia</th>
@@ -177,41 +179,47 @@
         </thead>
         <tbody>
             <tr>
-                <td><img  width="90" height="90" src="assets/img/avatars/cesar.jpg" /> César Armando Lima</td>
-                <td>00025815</td>
-                <td>NO</td>
+                <td><img  width="90" height="90" src="assets/img/avatars/cesar.jpg" /> </td>
+                <td>César Armando Lima</td>
+                <td>00050715</td>
+                <td><img id="00050715" src="assets/img/error.png" width="50px" height="50px"></td>
+                <td>FELÍZ</td>
+                <td>Mirando a la pizzarra</td>
+                <td>40:00</td>
+                
+            </tr>
+            <tr>
+                <td><img  width="90" height="90" src="assets/img/avatars/matus.jpg" /> </td>
+                <td>Héctor Manrique Matus</td>
+                <td>00066015</td>
+                <td><img id="00066015" src="assets/img/error.png" width="50px" height="50px"></td>
                 <td>FELÍZ</td>
                 <td>Mirando a la pizzarra</td>
                 <td>40:00</td>
             </tr>
             <tr>
-                <td><img  width="90" height="90" src="assets/img/avatars/matus.jpg" /> Héctor Manrique Matus</td>
-                <td>00025815</td>
-                <td>NO</td>
+                <td><img  width="90" height="90" src="assets/img/avatars/luis2.jfif" /> </td>
+                <td>Luis Ernesto Fuentes</td>
+                <td>00037415</td>
+                 <td><img id="00037415" src="assets/img/error.png" width="50px" height="50px"></td>
                 <td>FELÍZ</td>
                 <td>Mirando a la pizzarra</td>
                 <td>40:00</td>
             </tr>
             <tr>
-                <td><img  width="90" height="90" src="assets/img/avatars/luis2.jfif" /> Luis Ernesto Fuentes</td>
-                <td>00025815</td>
-                <td>NO</td>
+                <td><img  width="90" height="90" src="assets/img/avatars/trejo.jpg" /> </td>
+                <td>Mauricio Antonio Trejo</td>
+                <td>00019615</td>
+                 <td><img id="00019615" src="assets/img/error.png" width="50px" height="50px"></td>
                 <td>FELÍZ</td>
                 <td>Mirando a la pizzarra</td>
                 <td>40:00</td>
             </tr>
             <tr>
-                <td><img  width="90" height="90" src="assets/img/avatars/trejo.jpg" /> Mauricio Antonio Trejo</td>
+                <td><img  width="90" height="90" src="assets/img/avatars/david.jpg" /> </td>
+                <td>David Ernesto Quintanilla</td>
                 <td>00025815</td>
-                <td>NO</td>
-                <td>FELÍZ</td>
-                <td>Mirando a la pizzarra</td>
-                <td>40:00</td>
-            </tr>
-            <tr>
-                <td><img  width="90" height="90" src="assets/img/avatars/david.jpg" /> David Ernesto Quintanilla</td>
-                <td>00025815</td>
-                <td>NO</td>
+                 <td><img id="00025815" src="assets/img/error.png" width="50px" height="50px"></td>
                 <td>FELÍZ</td>
                 <td>Mirando a la pizzarra</td>
                 <td>40:00</td>
@@ -251,7 +259,7 @@
                                 <h6 class="text-primary font-weight-bold m-0">Emotions </h6>
                                 <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle"
                                         data-toggle="dropdown" aria-expanded="false" type="button"><i
-                                            class="fas fa-ellipsis-v text-gray-400"></i></button>
+                                            class="fas fa-ellipsis-v text-gray-400"></img></button>
                                     <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in" role="menu">
                                         <p class="text-center dropdown-header">dropdown header:</p><a
                                             class="dropdown-item" role="presentation" href="#">&nbsp;Action</a><a
@@ -266,7 +274,7 @@
                                         data-bs-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Direct&quot;,&quot;PA&quot;,&quot;NPA&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#1cc88a&quot;,&quot;#36b9cc&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:[&quot;0&quot;,&quot;30&quot;,&quot;70&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{}}}"></canvas>
                                 </div>
                                 <div class="text-center small mt-4"><span
-                                        class="mr-2"><i class="fas fa-circle text-success"></i>&nbsp;Paying Atention</span><span
+                                        class="mr-2"><i class="fas fa-circle text-success"></i>&nbsp;Paying Atention</i><span
                                         class="mr-2"><i class="fas fa-circle text-info"></i>&nbsp;Not Paying Atention</span></div>
                             </div>
                         </div>
@@ -290,6 +298,45 @@
     <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="assets/js/theme.js"></script>
+     <script src="../firebase-init.js"></script>
+
+    <script>
+        console.log("Hey")
+     //Getting data from Collection
+
+     db.collection('asistencia').onSnapshot(snapshot => {
+            snapshot.docs.forEach(doc=>{
+                    if((doc.data().asis)){
+                                        document.getElementById(doc.data().carnet).setAttribute("src","assets/img/success.png")
+
+                    }
+                    else{
+                                document.getElementById(doc.data().carnet).setAttribute("src","assets/img/error.png")
+
+                    }
+
+
+            })
+
+     })
+    
+        function limpiar(){
+        console.log("s")
+           db.collection('asistencia').get().then(snapshot=>{
+                 snapshot.docs.forEach(doc=>{
+                                db.collection('asistencia').doc(doc.id).set({
+                                    asis:false
+                                },{merge:true})
+
+
+
+                    })
+           })
+        }
+      
+</script>
+
+
 </body>
 
 </html>
