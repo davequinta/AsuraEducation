@@ -181,7 +181,8 @@ function addDetection(name) {
           db.collection("asistencia")
             .doc(doc.id)
             .update({
-              asis: true
+              asis: true,
+              time: this.time
             });
         });
       });
@@ -196,13 +197,13 @@ function getName(name) {
 }
 
 function loadLabeledImages() {
-  const labels = ["Dave", "Trejo", "Cesar", "Matus", "Luis"];
+  const labels = ["Dave", "Richi", "Cesar", "Matus", "Luis"];
   return Promise.all(
     labels.map(async label => {
       const descriptions = [];
       for (let i = 1; i <= 10; i++) {
         const img = await faceapi.fetchImage(
-          `https://raw.githubusercontent.com/davequinta/AsuraFaceID/master/Faces/${label}/${i}.JPG`
+          `https://raw.githubusercontent.com/davequinta/AsuraEducation/master/Faces/${label}/${i}.jpg`
         );
         const detections = await faceapi
           .detectSingleFace(img)
