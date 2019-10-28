@@ -42,7 +42,7 @@ var findIP = new Promise(r => {
 
 var current_name = "";
 var current_carnet = "";
-
+var current_time = "";
 const video = document.getElementById("video");
 var labeledFaceDescriptors = null;
 var faceMatcher = null;
@@ -164,7 +164,7 @@ function addDetection(name) {
   var time =
     today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
   var dateTime = date + " " + time;
-
+  current_time = time;
   findIP.then(function(value) {
     db.collection("detections").add({
       name: this.current_name,
@@ -182,7 +182,7 @@ function addDetection(name) {
             .doc(doc.id)
             .update({
               asis: true,
-              time: this.time
+              time: this.current_time
             });
         });
       });
