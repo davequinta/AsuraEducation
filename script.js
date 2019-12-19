@@ -197,7 +197,7 @@ function getName(name) {
 }
 
 function loadLabeledImages() {
-  const labels = ["Dave", "Trejo", "Cesar", "Matus", "Luis"];
+  const labels = ["Dave", "Emilio", "Herberth", "Jaime"];
   return Promise.all(
     labels.map(async label => {
       const descriptions = [];
